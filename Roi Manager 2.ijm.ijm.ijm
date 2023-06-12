@@ -26,7 +26,7 @@ Dialog.addNumber("Number of channels:", 4);
 Dialog.show();
 channelNumber = Dialog.getNumber();
 
-for (i = 0; i < channelNumber; i++) {
+for (i = 1; i <= channelNumber; i++) {
 	Dialog.create("Channel Color");
 colChoice = newArray("Red", "Green", "Blue", "Cyan", "Magenta", "Yellow", "Grays");
 Dialog.addRadioButtonGroup("Channel Color", colChoice, 7, 1, "Blue");
