@@ -118,7 +118,7 @@ numberGroups = lengthOf(splitGroupNames);
 
 for (i=1; i<=numberGroups; i++){
 	run("Roi Defaults...", "color=red stroke=0 group=i");
-	waitForUser(i, "Leave dialog open until you finish tracing cell group.  Click 'OK' only when ready to move to next cell type");
+	waitForUser("ROI Group: " + i, "Leave dialog open until you finish tracing cell group.  Click 'OK' only when ready to move to next cell type");
 }
 
 
