@@ -10,7 +10,7 @@
 //To comment out code, put a "//" at the start of every line you wish to exclude.  This also works for making comments. 
 //ImageJ will ignore any commented code when running the macro.
 
-//Sets channels into the correct colors.  
+// (B) Sets channels into the correct colors.  
 //In the "Stack.setChannel(n)" command, "n" should be replaced with the number of the channel you are trying to change.  You must use a numerical value or else this will not work.
 //In the "run(color) command, "color" should be replaced with the color you are setting the channel to.  You must spell the channel exactly as it is shown in the Channels tool.
 run("Channels Tool...");
@@ -23,12 +23,12 @@ run("Green");
 Stack.setChannel(4);
 run("Magenta");
 
-//This puts the channels into the "Composite Projection Max" mode. If using a different channel display mode, substitute this code.  
+//(C) This puts the channels into the "Composite Projection Max" mode. If using a different channel display mode, substitute this code.  
 //For substitutions, the macro recorder is recommended.  Record yourself putting it into the appropriate display mode, then comment out this code and add the new code. 
 Property.set("CompositeProjection", "Max");
 Stack.setDisplayMode("composite");
 
-//This allows you to measure with a segmented line.  
+// (D) (E) This allows you to measure with a segmented line.  
 //The line width is set using the "line = n" command.  To change the line width, substitute "n" for the desired width of your line in pixels.
 //The line width is currently set to 3 pixels, as indicated by "line = 3".  
 //To change the type of line you are tracing (i.e. segmented, non-segmented, etc.) you will need to change the third line.  
@@ -39,21 +39,21 @@ setTool("line");
 run("Line Width...", "line=3");
 setTool("polyline");
 
-//This runs the "Roi-group table" endogenous plugin.
+// (F) This runs the "Roi-group table" endogenous plugin.
 beep();
 waitForUser("The ROI Manager is about to appear.  Click 'Import From File' then select group name settings.  Click 'Ok' to complete settings.")
 run("Roi-group Table");
 
-//Opens ROI Manager
+// (G) Opens ROI Manager
 run("ROI Manager...");
 
-//Opens brightness and contrast adjuster
+// (G) Opens brightness and contrast adjuster
 run("Brightness/Contrast...");
 
-//Opens Channels Tool
+// (G) Opens Channels Tool
 run("Channels Tool...");
 
-//This manually takes you through every cell type you are tracing.  
+// (H) This manually takes you through every cell type you are tracing.  
 //As you advance through each dialog box,  this macro will change the group it assigns each measurement to .
 //The general structure of this block is 2 lines that repeat for each group:
 //run("Roi Defaults...", "color = red stroke = 0 group = n");
@@ -82,7 +82,7 @@ waitForUser("Leave dialog open until you finish tracing 2 CC's; Click 'OK' only 
 run("Roi Defaults...", "color=red stroke=0 group=8");
 waitForUser("Leave dialog open until you finish tracing 4-8 CC's; Click 'OK' only when ready to move to next cell type");
 
-//This sets ImageJ into the channel you wish to measure then takes measurements.
+// (I) This sets ImageJ into the channel you wish to measure then takes measurements.
 //To change the channel you wish to measure, substitute the "n" in "Stack.setChannel(n) for the number of the appropriate channel.
 Stack.setChannel(4);
 roiManager("Measure");
