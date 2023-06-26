@@ -56,12 +56,12 @@ run("Green");
 Stack.setChannel(4);
 run("Magenta");*/
 
-//This puts the channels into the "Composite Projection Max" mode. If using a different channel display mode, substitute this code.  
+// (C) This puts the channels into the "Composite Projection Max" mode. If using a different channel display mode, substitute this code.  
 //For substitutions, the macro recorder is recommended.  Record yourself putting it into the appropriate display mode, then comment out this code and add the new code. 
 Property.set("CompositeProjection", "Max");
 Stack.setDisplayMode("composite");
 
-/* (C) This changes the line type from default (straight) to segmented line.  
+/* (D) This changes the line type from default (straight) to segmented line.  
 ImageJ has a technical term for each type of line.  For segmented lines, this is "polyline".
 To change the type of line you are tracing (i.e. segmented, straight, etc.), change out the word "polyline".
 Ensure that line names are in quotation marks or else this will not work.
@@ -73,7 +73,7 @@ As an example, if I wanted to draw straight lines, I would write the following:
 setTool("line"); */
 setTool("polyline");
 
-/* (D) This creates a dialog box that allows the user to input the desired line width in pixels.
+/* (E) This creates a dialog box that allows the user to input the desired line width in pixels.
 The input value must be a numerical integer or else this will not work.
 The "3" in "Dialog.addNumber("Width in pixels:", 3);" sets the default line width to 3.
 This number can be changed according to preference.*/
@@ -83,22 +83,22 @@ Dialog.show();
 lineWidth = Dialog.getNumber();
 run("Line Width...", "line=lineWidth");
 
-/* (E) This runs the "Roi-group table" endogenous plugin.
+/* (F) This runs the "Roi-group table" endogenous plugin.
 This plugin can be installed via the Update Site in ImageJ*/
 beep();
 waitForUser("The ROI Group Manager is about to appear.  Click 'Import From File' then select group name settings.  Click 'Ok' to open ROI Group Manager.")
 run("Roi-group Table");
 
-// (F) Opens ROI Manager
+// (G) Opens ROI Manager
 run("ROI Manager...");
 
-// (F) Opens brightness and contrast adjuster
+// (G) Opens brightness and contrast adjuster
 run("Brightness/Contrast...");
 
-// (F) Opens Channels Tool
+// (G) Opens Channels Tool
 run("Channels Tool...");
 
-/* (G) This prompts the user for how many cell groups they entered into the Roi-group table plugin, then walks them through analysis of each group, 
+/* (H) This prompts the user for how many cell groups they entered into the Roi-group table plugin, then walks them through analysis of each group, 
 displaying the number of the group at the top of each message box.*/
 
 Dialog.create("How many groups do you have?");
@@ -113,7 +113,7 @@ for (i=1; i<=numberGroups; i++){
 }
 
 
-/* (H) This prompts the user for which channel they would like to measure then takes measurements.
+/* (I) This prompts the user for which channel they would like to measure then takes measurements.
  * The input must be numerical or this will not work.
  * If you wish to measure more than one channel, then duplicate this chunk for each additional channel that you wish to measure.
 */
