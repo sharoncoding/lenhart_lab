@@ -12,13 +12,13 @@ Leads the user through measuring different cell types determined by the settings
 Prompts the user to determine which channel they would like to measure. 
 Measures ROI's in designated channel. */
 
-/* (A) To comment out code, put a "//" at the start of every line you wish to exclude.  
+/* To comment out code, put a "//" at the start of every line you wish to exclude.  
 For longer comments, you can start and end with the characters in this and the previous comment. 
 These are "/*" and its reverse.
 This also works for making comments. 
 ImageJ will ignore any commented code when running the macro.*/
 
-/* (B) Sets channels to colors determined by user in pop-up boxes.
+/* (A) Sets channels to colors determined by user in pop-up boxes.
 */
 
 Dialog.create("How many channels are there?  Answer must be numerical.");
@@ -43,7 +43,7 @@ recolorChannel(i, channelColor);
 }
 
 
-/* (C) Use this block if you would like to set the color of each channel manually.
+/* (B) Use this block if you would like to set the color of each channel manually.
 In the "Stack.setChannel(n)" command, "n" should be replaced with the number of the channel you are trying to change.  You must use a numerical value or else this will not work.
 In the "run(color) command, "color" should be replaced with the color you are setting the channel to.  You must spell the channel exactly as it is shown in the Channels tool.
 This chunk has been commented out because of the user input section included above*/
@@ -56,12 +56,12 @@ run("Green");
 Stack.setChannel(4);
 run("Magenta");*/
 
-// (D) This puts the channels into the "Composite Projection Max" mode. If using a different channel display mode, substitute this code.  
+// (C) This puts the channels into the "Composite Projection Max" mode. If using a different channel display mode, substitute this code.  
 //For substitutions, the macro recorder is recommended.  Record yourself putting it into the appropriate display mode, then comment out this code and add the new code. 
 Property.set("CompositeProjection", "Max");
 Stack.setDisplayMode("composite");
 
-/* (E) This changes the line type from default (straight) to segmented line.  
+/* (D) This changes the line type from default (straight) to segmented line.  
 ImageJ has a technical term for each type of line.  For segmented lines, this is "polyline".
 To change the type of line you are tracing (i.e. segmented, straight, etc.), change out the word "polyline".
 Ensure that line names are in quotation marks or else this will not work.
@@ -73,7 +73,7 @@ As an example, if I wanted to draw straight lines, I would write the following:
 setTool("line"); */
 setTool("polyline");
 
-/* (F) This creates a dialog box that allows the user to input the desired line width in pixels.
+/* (E) This creates a dialog box that allows the user to input the desired line width in pixels.
 The input value must be a numerical integer or else this will not work.
 The "3" in "Dialog.addNumber("Width in pixels:", 3);" sets the default line width to 3.
 This number can be changed according to preference.*/
@@ -83,22 +83,22 @@ Dialog.show();
 lineWidth = Dialog.getNumber();
 run("Line Width...", "line=lineWidth");
 
-/* (G) This runs the "Roi-group table" endogenous plugin.
+/* (F) This runs the "Roi-group table" endogenous plugin.
 This plugin can be installed via the Update Site in ImageJ*/
 beep();
 waitForUser("The ROI Group Manager is about to appear.  Click 'Import From File' then select group name settings.  Click 'Ok' to open ROI Group Manager.")
 run("Roi-group Table");
 
-// (H) Opens ROI Manager
+// (G) Opens ROI Manager
 run("ROI Manager...");
 
-// (H) Opens brightness and contrast adjuster
+// (G) Opens brightness and contrast adjuster
 run("Brightness/Contrast...");
 
-// (H) Opens Channels Tool
+// (G) Opens Channels Tool
 run("Channels Tool...");
 
-/* (I) This prompts the user to open the .txt file created by the Roi-Group table plugin.  
+/* (H) This prompts the user to open the .txt file created by the Roi-Group table plugin.  
  * Once the file is opened, this macro will read the number of groups then walk the user through analysis of each group.
 */
 
@@ -122,7 +122,7 @@ for (i=1; i<=numberGroups; i++){
 }
 
 
-/* (J) This prompts the user for which channel they would like to measure then takes measurements.
+/* (I) This prompts the user for which channel they would like to measure then takes measurements.
  * The input must be numerical or this will not work.
  * If you wish to measure more than one channel, then duplicate this chunk for each additional channel that you wish to measure.
 */
