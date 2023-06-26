@@ -18,7 +18,7 @@ These are "/*" and its reverse.
 This also works for making comments. 
 ImageJ will ignore any commented code when running the macro.*/
 
-/*Sets channels to colors determined by user in pop-up boxes.
+/* (A) Sets channels to colors determined by user in pop-up boxes.
 */
 
 Dialog.create("How many channels are there?  Answer must be numerical.");
@@ -43,7 +43,7 @@ recolorChannel(i, channelColor);
 }
 
 
-/*Use this block if you would like to set the color of each channel manually.
+/* (B) Use this block if you would like to set the color of each channel manually.
 In the "Stack.setChannel(n)" command, "n" should be replaced with the number of the channel you are trying to change.  You must use a numerical value or else this will not work.
 In the "run(color) command, "color" should be replaced with the color you are setting the channel to.  You must spell the channel exactly as it is shown in the Channels tool.
 This chunk has been commented out because of the user input section included above*/
@@ -61,7 +61,7 @@ run("Magenta");*/
 Property.set("CompositeProjection", "Max");
 Stack.setDisplayMode("composite");
 
-/*This changes the line type from default (straight) to segmented line.  
+/* (C) This changes the line type from default (straight) to segmented line.  
 ImageJ has a technical term for each type of line.  For segmented lines, this is "polyline".
 To change the type of line you are tracing (i.e. segmented, straight, etc.), change out the word "polyline".
 Ensure that line names are in quotation marks or else this will not work.
@@ -73,7 +73,7 @@ As an example, if I wanted to draw straight lines, I would write the following:
 setTool("line"); */
 setTool("polyline");
 
-/*This creates a dialog box that allows the user to input the desired line width in pixels.
+/* (D) This creates a dialog box that allows the user to input the desired line width in pixels.
 The input value must be a numerical integer or else this will not work.
 The "3" in "Dialog.addNumber("Width in pixels:", 3);" sets the default line width to 3.
 This number can be changed according to preference.*/
@@ -83,22 +83,22 @@ Dialog.show();
 lineWidth = Dialog.getNumber();
 run("Line Width...", "line=lineWidth");
 
-/*This runs the "Roi-group table" endogenous plugin.
+/* (E) This runs the "Roi-group table" endogenous plugin.
 This plugin can be installed via the Update Site in ImageJ*/
 beep();
 waitForUser("The ROI Group Manager is about to appear.  Click 'Import From File' then select group name settings.  Click 'Ok' to open ROI Group Manager.")
 run("Roi-group Table");
 
-//Opens ROI Manager
+// (F) Opens ROI Manager
 run("ROI Manager...");
 
-//Opens brightness and contrast adjuster
+// (F) Opens brightness and contrast adjuster
 run("Brightness/Contrast...");
 
-//Opens Channels Tool
+// (F) Opens Channels Tool
 run("Channels Tool...");
 
-/*This prompts the user for how many cell groups they entered into the Roi-group table plugin, then walks them through analysis of each group, 
+/* (G) This prompts the user for how many cell groups they entered into the Roi-group table plugin, then walks them through analysis of each group, 
 displaying the number of the group at the top of each message box.*/
 
 Dialog.create("How many groups do you have?");
@@ -113,7 +113,7 @@ for (i=1; i<=numberGroups; i++){
 }
 
 
-/*This prompts the user for which channel they would like to measure then takes measurements.
+/* (H) This prompts the user for which channel they would like to measure then takes measurements.
  * The input must be numerical or this will not work.
  * If you wish to measure more than one channel, then duplicate this chunk for each additional channel that you wish to measure.
 */
